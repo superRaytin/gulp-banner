@@ -1,5 +1,5 @@
 # gulp-banner
-> A gulp plugin to insert a comment at the top of the file.
+> A gulp plugin to insert a comment (or other string) at the top of the file.
 
 [![Build Status](https://travis-ci.org/superRaytin/gulp-banner.svg?branch=master)](https://travis-ci.org/superRaytin/gulp-banner)
 [![NPM version][npm-image]][npm-url]
