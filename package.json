@@ -1,0 +1,34 @@
+{
+  "name": "gulp-banner",
+  "version": "0.1.1",
+  "description": "A gulp plugin to insert a comment at the top of the file",
+  "main": "lib/index.js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/superRaytin/gulp-banner/issues"
+  },
+  "homepage": "https://github.com/superRaytin/gulp-banner",
+  "repository": "https://github.com/superRaytin/gulp-banner",
+  "keywords": [
+    "gulp",
+    "banner",
+    "comment",
+    "gulp plugin"
+  ],
+  "author": "Leon Shi",
+  "scripts": {
+    "lint": "eslint --ext .js lib",
+    "test": "./node_modules/.bin/mocha ./test/*.js"
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "devDependencies": {
+    "should": "~6.0.1",
+    "mocha": "~2.2.4",
+    "eslint": "~1.6.0",
+    "pre-commit": "1.x",
+    "through2": "~2.0.0",
+    "gulp-util": "~3.0.7"
+  }
+}

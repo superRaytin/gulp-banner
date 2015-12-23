@@ -1,2 +1,65 @@
 # gulp-banner
-A gulp plugin for inserting a comment at the top of the file.
+A gulp plugin to insert a comment at the top of the file.
+
+[![Build Status](https://travis-ci.org/superRaytin/gulp-banner.svg?branch=master)](https://travis-ci.org/superRaytin/gulp-banner)
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][npm-url]
+
+[![gulp-banner](https://nodei.co/npm/gulp-banner.png)](https://npmjs.org/package/gulp-banner)
+
+[npm-url]: https://npmjs.org/package/gulp-banner
+[downloads-image]: http://img.shields.io/npm/dm/gulp-banner.svg
+[npm-image]: http://img.shields.io/npm/v/gulp-banner.svg
+
+# Installation
+
+```
+npm install gulp gulp-banner --save-dev
+```
+
+# Quick Start
+
+```js
+var gulp = require('gulp');
+var uglify = require('gulp-uglify');
+var banner = require('gulp-banner');
+
+var comment = '/*\n' +
+    ' * gulp-banner 0.1.0\n' +
+    ' * https://github.com/superRaytin/gulp-banner\n' +
+    ' *\n' +
+    ' * Copyright 2015, Leon Shi\n' +
+    ' * Released under the MIT license.\n' +
+    '*/\n\n';
+
+gulp.task('taskName', function() {
+    gulp.src('path/to/example.js')
+        .pipe(uglify())
+        .pipe(banner(comment))
+        .pipe(gulp.dest('dist'));
+});
+```
+
+`dist/example.js` content will be like below:
+
+```js
+/*
+ * gulp-banner 0.1.0
+ * https://github.com/superRaytin/gulp-banner
+ *
+ * Copyright 2015, Leon Shi
+ * Released under the MIT license.
+*/
+
+!function a(b,c,d){}...
+```
+
+# Testing
+
+```
+npm test
+```
+
+# License
+
+MIT, see the [LICENSE](/LICENSE) file for detail.
