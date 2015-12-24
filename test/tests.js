@@ -3,6 +3,7 @@ var path = require('path');
 var should = require('should');
 var gutil = require('gulp-util');
 var gulpBanner = require('../lib/index');
+var template = require('underscore.template');
 
 var comment = '/* i am a comment */';
 
@@ -35,5 +36,34 @@ describe('gulp-banner', function() {
       bundled.contents.toString().should.equal(comment + str);
       done();
     }).end(fakeFile);
+  });
+});
+
+describe('template', function() {
+  it('template single line', function() {
+    comment = '/* i am a <%= pkg.name %> <%= content %> comment */';
+    template(comment, {
+      pkg: {
+        name: 'awesome'
+      },
+      content: 'project'
+    }).should.equal('/* i am a awesome project comment */');
+  });
+
+  it('template multiple line', function() {
+    comment = '/*\n' +
+        ' * <%= pkg.name %> <%= pkg.version %>\n' +
+        ' * <%= pkg.name %> <%= pkg.version %>\n' +
+        '*/\n\n';
+    var res = '/*\n' +
+        ' * awesome 0.1.2\n' +
+        ' * awesome 0.1.2\n' +
+        '*/\n\n';
+    template(comment, {
+      pkg: {
+        name: 'awesome',
+        version: '0.1.2'
+      }
+    }).should.equal(res);
   });
 });
