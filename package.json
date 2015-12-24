@@ -1,7 +1,7 @@
 {
   "name": "gulp-banner",
-  "version": "0.1.1",
-  "description": "A gulp plugin to insert a comment at the top of the file",
+  "version": "0.1.2",
+  "description": "A gulp plugin to insert a comment (or other string) at the top of the file",
   "main": "lib/index.js",
   "license": "MIT",
   "bugs": {
@@ -13,6 +13,7 @@
     "gulp",
     "banner",
     "comment",
+    "gulp prepend",
     "gulp plugin"
   ],
   "author": "Leon Shi",
@@ -23,6 +24,9 @@
   "pre-commit": [
     "lint"
   ],
+  "dependencies": {
+    "underscore.template": "~0.1.2"
+  },
   "devDependencies": {
     "should": "~6.0.1",
     "mocha": "~2.2.4",
