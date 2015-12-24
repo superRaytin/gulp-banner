@@ -25,17 +25,20 @@ var uglify = require('gulp-uglify');
 var banner = require('gulp-banner');
 
 var comment = '/*\n' +
-    ' * gulp-banner 0.1.0\n' +
-    ' * https://github.com/superRaytin/gulp-banner\n' +
+    ' * <%= pkg.name %> <%= pkg.version %>\n' +
+    ' * <%= pkg.description %>\n' +
+    ' * <%= pkg.homepage %>\n' +
     ' *\n' +
-    ' * Copyright 2015, Leon Shi\n' +
-    ' * Released under the MIT license.\n' +
+    ' * Copyright 2015, <%= pkg.author %>\n' +
+    ' * Released under the <%= pkg.license %> license.\n' +
     '*/\n\n';
 
 gulp.task('taskName', function() {
     gulp.src('path/to/example.js')
         .pipe(uglify())
-        .pipe(banner(comment))
+        .pipe(banner(comment, {
+            pkg: pkg
+        }))
         .pipe(gulp.dest('dist'));
 });
 ```
@@ -44,7 +47,8 @@ gulp.task('taskName', function() {
 
 ```js
 /*
- * gulp-banner 0.1.0
+ * gulp-banner 0.1.2
+ * A gulp plugin to insert a comment (or other string) at the top of the file
  * https://github.com/superRaytin/gulp-banner
  *
  * Copyright 2015, Leon Shi
